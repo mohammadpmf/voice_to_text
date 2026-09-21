@@ -38,8 +38,6 @@
     pip install --upgrade pip
     pip install -r requirements.txt
 
-اگر فقط حالت Local را می خواهید، می توانید خطوط openai و google-cloud-speech را از requirements.txt حذف کنید.
-
 ## دانلود یکباره مدل - مهمترین گام برای دقت و سرعت
 
 قبل از اجرای برنامه، مدل Whisper را یک بار دانلود کنید تا همیشه به صورت آفلاین در دسترس باشد:
@@ -52,6 +50,13 @@
 - مدل در پوشه voice_to_text/models/faster-whisper-medium/ ذخیره می شود و همیشه باقی می ماند.
 
 پس از این مرحله، برنامه بدون نیاز به اینترنت اجرا می شود.
+
+حجم تقریبی مدل ها
+- large-v3 (2.87 GB)
+- mendium (1.42 GB)
+- small (463 MB)
+- base (141 MB)
+- tiny (75 MB)
 
 ## اجرای برنامه
 
@@ -116,28 +121,6 @@
 
 با این تنظیمات، دقت فارسی به طور چشمگیری بالا می رود و سرعت هم عالی است.
 
-## Provider های اختیاری - API
-
-پیش فرض حالت local است و هیچ اینترنتی لازم نیست.
-برای استفاده از API های ابری:
-
-### OpenAI Whisper API
-
-در فایل .env:
-
-    OPENAI_API_KEY=sk-your-key-here
-    OPENAI_WHISPER_MODEL=whisper-1
-    DEFAULT_PROVIDER=openai
-
-### Google Cloud Speech-to-Text
-
-در فایل .env:
-
-    GOOGLE_APPLICATION_CREDENTIALS=C:\path\to\service-account.json
-    DEFAULT_PROVIDER=google
-
-سپس در برنامه از کمبوباکس Provider، حالت موردنظر را انتخاب کنید.
-
 ## کلیدهای میانبر
 
 | میانبر              | عملکرد            |
@@ -145,15 +128,6 @@
 | Ctrl+Shift+Space    | شروع یا توقف ضبط  |
 | Ctrl+S              | ذخیره در فایل TXT |
 | Ctrl+L              | پاک کردن متن      |
-| Ctrl+C در Editor    | کپی انتخاب شده    |
-
-## ساخت فایل اجرایی EXE با PyInstaller
-
-    pip install pyinstaller
-    python build_exe.py
-
-خروجی در پوشه dist/VoiceToText/ قرار می گیرد.
-برای اجرا روی سیستم دیگر، کل پوشه را کپی کنید. پوشه models را هم در کنار فایل اجرایی قرار دهید تا آفلاین کار کند.
 
 ## عیب یابی
 
